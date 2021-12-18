@@ -12,7 +12,7 @@ public class App {
      * 主従区分
      */
     public enum MasterSlaveType {
-        M("M"), S("S"), BLANK(""),;
+        M("Master"), S("Slave"), BLANK(""),;
 
         private final String value;
 
@@ -26,11 +26,9 @@ public class App {
 
         private static MasterSlaveType fromValue(String value) {
             return Arrays.stream(MasterSlaveType.values())
-                    .filter(type -> type.value().equals(value))
-                    .findFirst()
+                    .filter(type -> type.value().equals(value)).findFirst()
                     .orElseThrow(() -> {
-                        throw new IllegalStateException(
-                            String.format(
+                        throw new IllegalStateException(String.format(
                                 "'%s' は MasterSlaveType で定義されていない列挙子です",
                                 value));
                     });
@@ -39,13 +37,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        MasterSlaveType typeMaster = MasterSlaveType.fromValue("M");
-        MasterSlaveType typeSlave = MasterSlaveType.fromValue("S");
-        MasterSlaveType typeCustomer = MasterSlaveType.fromValue("C");
+        MasterSlaveType typeMaster = MasterSlaveType.fromValue("Master");
+        MasterSlaveType typeSlave = MasterSlaveType.fromValue("Slave");
+        MasterSlaveType typeBlank = MasterSlaveType.fromValue("");
+        MasterSlaveType typeCustomer = MasterSlaveType.fromValue("Customer");
 
-        System.out.println(typeMaster.value);
-        System.out.println(typeSlave.value);
-        System.out.println(typeCustomer.value);
+        System.out.println(typeMaster);
+        System.out.println(typeSlave);
+        System.out.println(typeBlank);
+        System.out.println(typeCustomer);
     }
 }
 ```
