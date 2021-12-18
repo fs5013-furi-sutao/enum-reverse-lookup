@@ -92,13 +92,13 @@ public class App {
 
     public static void main(String[] args) {
 
-        MasterSlaveType typeM = MasterSlaveType.fromValue("M");
-        MasterSlaveType typeS = MasterSlaveType.fromValue("S");
-        MasterSlaveType typeBlank = MasterSlaveType.fromValue("C");
+        MasterSlaveType typeMaster = MasterSlaveType.fromValue("M");
+        MasterSlaveType typeSlave = MasterSlaveType.fromValue("S");
+        MasterSlaveType typeCustomer = MasterSlaveType.fromValue("C");
 
-        System.out.println(typeM.value);
-        System.out.println(typeS.value);
-        System.out.println(typeBlank.value);
+        System.out.println(typeMaster.value);
+        System.out.println(typeSlave.value);
+        System.out.println(typeCustomer.value);
     }
 }
 ```
