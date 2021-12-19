@@ -61,10 +61,16 @@ public class App {
         }
     }
 
-    private static void printMasterSlaveTypeFromWord(String word) {
-        MasterSlaveType type = MasterSlaveType.fromValue(word);
-        System.out.println(type);
-    }
+    private static MasterSlaveType fromValue(String value) {
+            return Arrays.stream(MasterSlaveType.values())
+                    .filter(type -> type.value().equals(value))
+                    .findFirst()
+                    .orElseThrow(() -> {
+                        throw new IllegalStateException(String.format(
+                            ERR_MSG_FMT_FOR_ILLEGAL_STATE_EX, 
+                            value));
+                    });
+        }
 }
 ```
 
