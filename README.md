@@ -38,8 +38,6 @@ public class App {
         return Arrays.stream(MasterSlaveType.values())
                     .filter(type -> type.value().equals(value))
                     .findFirst()
-                    .filter(type -> type.value().equals(value))
-                    .findFirst()
                     .orElseThrow(() -> {
                         throw new IllegalStateException(
                             String.format(
