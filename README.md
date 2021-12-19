@@ -35,17 +35,19 @@ public class App {
             return this.value;
         }
 
-        public static MasterSlaveType fromValue(String value) {
-            MasterSlaveType result = mapping.get(value);
-            if (result == null) {
-                throw new IllegalStateException(
-                    String.format(
-                        ERR_MSG_FMT_FOR_ILLEGAL_STATE_EX, 
-                        value
-                    )
-                );
-            }
-        }
+        return Arrays.stream(MasterSlaveType.values())
+                    .filter(type -> type.value().equals(value))
+                    .findFirst()
+                    .filter(type -> type.value().equals(value))
+                    .findFirst()
+                    .orElseThrow(() -> {
+                        throw new IllegalStateException(
+                            String.format(
+                                ERR_MSG_FMT_FOR_ILLEGAL_STATE_EX,
+                                value
+                            )
+                        );
+                    });
     }
 
     public static void main(String[] args) {
