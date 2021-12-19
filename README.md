@@ -35,7 +35,8 @@ public class App {
             return this.value;
         }
 
-        return Arrays.stream(MasterSlaveType.values())
+        public static MasterSlaveType fromValue(String value) {
+            return Arrays.stream(MasterSlaveType.values())
                     .filter(type -> type.value().equals(value))
                     .findFirst()
                     .orElseThrow(() -> {
@@ -46,6 +47,7 @@ public class App {
                             )
                         );
                     });
+        }
     }
 
     public static void main(String[] args) {
