@@ -102,7 +102,7 @@ public class App {
                     "'%s' は Enum %s で定義されていない値です", "%s",
                     MasterSlaveType.class.getName());
 
-            mapping = new HashMap<>();
+            MAPPING = new HashMap<>();
             Arrays.stream(MasterSlaveType.values())
                     .forEach(type -> MAPPING.put(type.value(), type));
         }
